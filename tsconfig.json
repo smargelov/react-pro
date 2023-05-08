@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    // позволяет указать путь к папке, в которую будут скомпилированы файлы
+    // (переопределяется webpack'ом)
+    "noImplicitAny": true,
+    // не позволяет не указывать типы переменных
+    "module": "ESNext",
+    // указывает, какой модульный синтаксис будет использоваться
+    "target": "es5",
+    // в какой синтаксис будет скомпилирован код
+    "jsx": "react",
+    // позволяет использовать jsx синтаксис
+    "allowJs": true,
+    // позволяет использовать js файлы (не только ts)
+    "moduleResolution": "node",
+    // позволяет использовать node.js модули
+    "esModuleInterop": true,
+    // позволяет работать с модулями, которые используют commonjs синтаксис (require)
+    // в виде импорта (import)
+    "allowSyntheticDefaultImports": true
+    // позволяет импортировать модули без default экспорта (import * as React from 'react')
+  },
+  "ts-node": {
+    // позволяет использовать ts-node для запуска скриптов
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
