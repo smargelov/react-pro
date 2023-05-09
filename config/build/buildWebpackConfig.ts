@@ -20,7 +20,7 @@ export default function buildWebpackConfig(options: BuildOptions): webpack.Confi
 		},
 		plugins: buildPlugins(options),
 		module: {
-			rules: buildLoaders()
+			rules: buildLoaders(options)
 		},
 		resolve: buildResolvers(),
 		// настройки сервера разработки (source maps и т.д.)
