@@ -1,12 +1,12 @@
-import { BuildConfig } from './types/config'
+import { BuildOptions } from './types/config'
 import webpack from 'webpack'
-import path from 'path'
 import buildPlugins from './buildPlugins'
 import buildLoaders from './buildLoaders'
 import buildResolvers from './buildResolvers'
+import buildDevServer from './buildDevServer'
 
-export default function buildWebpackConfig(options: BuildConfig): webpack.Configuration {
-	const { paths, mode } = options
+export default function buildWebpackConfig(options: BuildOptions): webpack.Configuration {
+	const { paths, mode, isDev } = options
 	return {
 		// режим сборки
 		mode,
@@ -22,6 +22,9 @@ export default function buildWebpackConfig(options: BuildConfig): webpack.Config
 		module: {
 			rules: buildLoaders()
 		},
-		resolve: buildResolvers()
+		resolve: buildResolvers(),
+		// настройки сервера разработки (source maps и т.д.)
+		devtool: isDev ? 'inline-source-map' : undefined,
+		devServer: isDev ? buildDevServer(options) : undefined
 	}
 }

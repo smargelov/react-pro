@@ -1,9 +1,9 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import path from 'path'
 import webpack from 'webpack'
-import { BuildConfig } from './types/config'
+import { BuildOptions } from './types/config'
 
-export default function buildPlugins({ paths }: BuildConfig): webpack.WebpackPluginInstance[] {
+export default function buildPlugins({ paths }: BuildOptions): webpack.WebpackPluginInstance[] {
 	return [
 		// плагин для работы с html
 		new HtmlWebpackPlugin({
