@@ -22,7 +22,7 @@ export default function buildWebpackConfig(options: BuildOptions): webpack.Confi
 		module: {
 			rules: buildLoaders(options)
 		},
-		resolve: buildResolvers(),
+		resolve: buildResolvers(options),
 		// настройки сервера разработки (source maps и т.д.)
 		devtool: isDev ? 'inline-source-map' : undefined,
 		devServer: isDev ? buildDevServer(options) : undefined

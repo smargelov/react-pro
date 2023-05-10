@@ -1,10 +1,10 @@
 import './styles/index.sass'
-import { Link, Route, Routes } from 'react-router-dom'
-import { AboutPageAsync } from './pages/AboutPage/AboutPage.async'
-import { MainPageAsync } from './pages/MainPage/MainPage.async'
 import { Suspense } from 'react'
-import { useTheme } from './themes/useTheme'
-import bem from './helpers/classNames/bem'
+import { Link, Route, Routes } from 'react-router-dom'
+import bem from 'shared/lib/classNames/bem'
+import { AboutPage } from 'pages/AboutPage'
+import { MainPage } from 'pages/MainPage'
+import { useTheme } from 'app/providers/ThemeProvider'
 
 const App = () => {
 	const {theme, toggleTheme} = useTheme()
@@ -23,8 +23,8 @@ const App = () => {
 			</nav>
 			<Suspense fallback={ <div>Loading...</div> }>
 				<Routes>
-					<Route path="/about" element={ <AboutPageAsync/> }/>
-					<Route path="/" element={ <MainPageAsync/> }/>
+					<Route path="/about" element={ <AboutPage/> }/>
+					<Route path="/" element={ <MainPage/> }/>
 				</Routes>
 			</Suspense>
 		</div>

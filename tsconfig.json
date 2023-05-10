@@ -18,8 +18,13 @@
     "esModuleInterop": true,
     // позволяет работать с модулями, которые используют commonjs синтаксис (require)
     // в виде импорта (import)
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
     // позволяет импортировать модули без default экспорта (import * as React from 'react')
+    "baseUrl": ".",
+    "paths": {
+      "*": ["./src/*"]
+    }
+    // откуда импортировать
   },
   "ts-node": {
     // позволяет использовать ts-node для запуска скриптов
