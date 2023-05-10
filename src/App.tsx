@@ -4,11 +4,12 @@ import { AboutPageAsync } from './pages/AboutPage/AboutPage.async'
 import { MainPageAsync } from './pages/MainPage/MainPage.async'
 import { Suspense } from 'react'
 import { useTheme } from './themes/useTheme'
+import bem from './helpers/classNames/bem'
 
 const App = () => {
 	const {theme, toggleTheme} = useTheme()
 	return (
-		<div className={`app app--${theme}`}>
+		<div className={bem('app',{[theme]: true})}>
 			<nav>
 				<ul>
 					<li>
