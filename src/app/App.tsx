@@ -1,15 +1,13 @@
 import './styles/index.sass'
-import { Suspense } from 'react'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import bem from 'shared/lib/classNames/bem'
-import { AboutPage } from 'pages/AboutPage'
-import { MainPage } from 'pages/MainPage'
 import { useTheme } from 'app/providers/ThemeProvider'
+import { AppRouter } from './providers/router'
 
 const App = () => {
-	const {theme, toggleTheme} = useTheme()
+	const { theme, toggleTheme } = useTheme()
 	return (
-		<div className={bem('app',{[theme]: true})}>
+		<div className={ bem('app', { [theme]: true }) }>
 			<nav>
 				<ul>
 					<li>
@@ -21,12 +19,7 @@ const App = () => {
 				</ul>
 				<button onClick={ toggleTheme }>Toggle theme</button>
 			</nav>
-			<Suspense fallback={ <div>Loading...</div> }>
-				<Routes>
-					<Route path="/about" element={ <AboutPage/> }/>
-					<Route path="/" element={ <MainPage/> }/>
-				</Routes>
-			</Suspense>
+			<AppRouter/>
 		</div>
 	)
 }
