@@ -7,10 +7,13 @@ export default function buildPlugins({ paths, isDev }: BuildOptions): webpack.We
 	const loaders: webpack.WebpackPluginInstance[] = [
 		// плагин для работы с html
 		new HtmlWebpackPlugin({
-			template: paths.html,
+			template: paths.html
 		}),
 		// плагин для работы с прогресс-баром
-		new webpack.ProgressPlugin()
+		new webpack.ProgressPlugin(),
+		new webpack.DefinePlugin({
+			__IS_DEV__: JSON.stringify(isDev)
+		})
 	]
 	// плагины для продакшена
 	const prodLoaders: webpack.WebpackPluginInstance[] = [
