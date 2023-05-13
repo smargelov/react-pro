@@ -24,6 +24,27 @@ export default function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRu
 		]
 	}
 
+	const babelLoader: webpack.RuleSetRule = {
+		test: /\.(js|jsx|ts|tsx)$/,
+		exclude: /node_modules/,
+		use: {
+			loader: 'babel-loader',
+			options: {
+				presets: ['@babel/preset-env'],
+				plugins: [
+					['i18next-extract', {
+						locales: [
+							'ru',
+							'en'
+						],
+						'keyAsDefaultValue': true
+					}]
+				]
+
+			}
+		}
+	}
+
 	const sassLoader: webpack.RuleSetRule = {
 		test: /\.s[ac]ss$/i,
 		use: [
@@ -48,6 +69,7 @@ export default function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRu
 	return [
 		fileLoader,
 		svgLoader,
+		babelLoader,
 		typescriptLoader,
 		sassLoader
 	]
