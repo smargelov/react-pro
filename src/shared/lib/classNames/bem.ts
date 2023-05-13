@@ -2,10 +2,10 @@ type Modifiers = Record<string,
 	string | boolean>
 type ExtraClasses = string[]
 
-function bem(block: string, modifiers: Modifiers, extraClasses?: ExtraClasses): string
-function bem(block: string, element: string, modifiers: Modifiers, extraClasses?: ExtraClasses): string
+function bem(block: string, modifiers?: Modifiers, extraClasses?: ExtraClasses): string
+function bem(block: string, element: string, modifiers?: Modifiers, extraClasses?: ExtraClasses): string
 function bem(
-	block: string, element: string | Modifiers, modifiers?: Modifiers | ExtraClasses, extraClasses?: ExtraClasses): string {
+	block: string, element?: string | Modifiers, modifiers?: Modifiers | ExtraClasses, extraClasses?: ExtraClasses): string {
 	let baseClass = block
 	let classes = ''
 	if (typeof element === 'string') {
@@ -25,7 +25,9 @@ function bem(
 	}
 	if (extraClasses) {
 		extraClasses.forEach((extraClass) => {
-			classes += ` ${ extraClass }`
+			if (extraClass) {
+				classes += ` ${ extraClass }`
+			}
 		})
 	}
 	return classes

@@ -1,0 +1,22 @@
+.navbar
+	background-color: var(--color-navbar-bg)
+	height: var(--navbar-height)
+	display: flex
+	align-items: center
+	padding-inline: 2rem
+
+	&__list
+		display: flex
+		gap: 2rem
+		margin-left: auto
+
+	&__item
+		font-size: 1rem
+		text-transform: uppercase
+		transition: color 0.3s ease-in-out
+
+	&__link
+		text-decoration: none
+		color: var(--color-accent)
+		&:hover, &:focus-visible
+			text-decoration-line: overline

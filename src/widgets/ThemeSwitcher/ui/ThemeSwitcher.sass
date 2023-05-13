@@ -1,0 +1,35 @@
+@import "app/styles/mixins"
+.theme-switcher
+	--theme-switcher-width: 4rem
+	display: grid
+	grid-template-columns: auto var(--theme-switcher-width) auto
+	align-items: center
+	gap: .5rem
+
+	&__icon
+		+baseTransition()
+
+	&__button
+		background-color: transparent
+		border: 2px solid var(--color-main-text)
+		border-radius: 1rem
+		height: 2rem
+		width: var(--theme-switcher-width)
+		position: relative
+
+		&::before
+			position: absolute
+			top: 50%
+			left: 0
+			transform: translate(3px, -50%)
+			content: ''
+			display: block
+			height: 1.5rem
+			width: 1.5rem
+			border-radius: 50%
+			background-color: var(--color-main-text)
+			transition: transform 0.3s ease-in-out
+
+		&--dark
+			&::before
+				transform: translate(calc(var(--theme-switcher-width) - 100% - 8px), -50%)
