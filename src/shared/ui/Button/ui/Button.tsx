@@ -25,13 +25,13 @@ export const Button = (props: ButtonProps) => {
 	const {
 		className,
 		children,
-		bType,
+		bType = ButtonType.PRIMARY,
 		size,
 		...otherProps
 	} = props
 	return (
 		<button
-			className={ bem('button', {[bType]: bType, [size]: size }, [className]) }
+			className={ bem('button', { [bType]: bType, [size]: size }, [className]) }
 			{ ...otherProps }
 		>
 			{ children }

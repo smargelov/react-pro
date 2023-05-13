@@ -1,16 +1,14 @@
-import './NavBar.sass'
+import './Navbar.sass'
 import bem from 'shared/lib/classNames/bem'
 import { Link } from 'react-router-dom'
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 
-interface NavBarProps {
+interface NavbarProps {
 	className?: string
 }
 
-export const NavBar = ({ className }: NavBarProps) => {
+export const Navbar = ({ className }: NavbarProps) => {
 	return (
 		<nav className={ bem('navbar', {}, [className]) }>
-			<ThemeSwitcher/>
 			<ul className={ bem('navbar', 'list') }>
 				<li className={ bem('navbar', 'item') }>
 					<Link className={ bem('navbar', 'link') } to="/">Main</Link>

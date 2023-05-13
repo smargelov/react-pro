@@ -1,5 +1,6 @@
 @import "app/styles/mixins"
 .theme-switcher
+	$self: &
 	--theme-switcher-width: 4rem
 	display: grid
 	grid-template-columns: auto var(--theme-switcher-width) auto
@@ -33,3 +34,13 @@
 		&--dark
 			&::before
 				transform: translate(calc(var(--theme-switcher-width) - 100% - 8px), -50%)
+
+	&.small
+		--theme-switcher-width: 3rem
+		grid-template-columns: repeat(2, 1fr)
+		justify-content: space-between
+
+		#{$self}__button
+			grid-row: 2
+			grid-column: span 2
+

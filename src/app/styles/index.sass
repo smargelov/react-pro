@@ -7,6 +7,14 @@
 .app
 	color: var(--color-main-text)
 	background-color: var(--color-main-bg)
+	display: grid
+	grid-template-columns: auto 1fr
+	grid-template-rows: var(--navbar-height) 1fr
 
-.main-content
-	padding: 2rem
+	&__navbar
+		grid-column: span 2
+
+	&__content
+		justify-self: start
+		align-self: start
+		padding: 2rem

@@ -2,14 +2,18 @@ import './styles/index.sass'
 import bem from 'shared/lib/classNames/bem'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { AppRouter } from './providers/router'
-import { NavBar } from 'widgets/navbar'
+import { Navbar } from 'widgets/navbar'
+import { Sidebar } from 'widgets/Sidebar'
 
 const App = () => {
 	const { theme } = useTheme()
 	return (
 		<div className={ bem('app', { [theme]: true }) }>
-			<NavBar/>
-			<div className="main-content"><AppRouter/></div>
+			<Navbar className={ bem('app', 'navbar') }/>
+			<Sidebar className={ bem('app', 'sidebar') }/>
+			<div className={bem('app', 'content')}>
+				<AppRouter/>
+			</div>
 		</div>
 	)
 }
