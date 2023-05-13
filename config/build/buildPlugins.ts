@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack'
 import { BuildOptions } from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
 export default function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] {
 	const loaders: webpack.WebpackPluginInstance[] = [
@@ -11,9 +12,15 @@ export default function buildPlugins({ paths, isDev }: BuildOptions): webpack.We
 		}),
 		// плагин для работы с прогресс-баром
 		new webpack.ProgressPlugin(),
+		// плагин для передачи переменных в код
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev)
-		})
+		}),
+	]
+	const devLoaders: webpack.WebpackPluginInstance[] = [
+		// плагин для работы с горячей перезагрузкой
+		new ReactRefreshWebpackPlugin(),
+		new webpack.HotModuleReplacementPlugin()
 	]
 	// плагины для продакшена
 	const prodLoaders: webpack.WebpackPluginInstance[] = [
@@ -23,5 +30,5 @@ export default function buildPlugins({ paths, isDev }: BuildOptions): webpack.We
 			chunkFilename: 'css/[name].[contenthash:6].css'
 		})
 	]
-	return isDev ? loaders : [...loaders, ...prodLoaders]
+	return isDev ? [...loaders, ...devLoaders] : [...loaders, ...prodLoaders]
 }

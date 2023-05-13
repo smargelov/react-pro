@@ -5,6 +5,7 @@ export default function buildDevServer(options: BuildOptions): WebServerConfigur
 	// настройки сервера разработки
 	return {
 		port: options.port,
-		historyApiFallback: true
+		historyApiFallback: true,
+		hot: true
 	}
 }
