@@ -1,0 +1,23 @@
+@import "mixins";
+@import "variables/vars";
+@import "reset";
+@import "themes/light";
+@import "themes/dark";
+
+.app {
+  display: grid;
+  grid-template-rows: var(--navbar-height) 1fr;
+  grid-template-columns: auto 1fr;
+  color: var(--color-main-text);
+  background-color: var(--color-main-bg);
+
+  &__navbar {
+    grid-column: span 2;
+  }
+
+  &__content {
+    align-self: start;
+    justify-self: start;
+    padding: 2rem;
+  }
+}

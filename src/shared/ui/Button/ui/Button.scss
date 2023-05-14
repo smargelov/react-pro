@@ -1,0 +1,91 @@
+@import "app/styles/mixins";
+
+.button {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  @include base-transition;
+
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &--primary {
+    color: var(--color-main-bg);
+    letter-spacing: 0.05rem;
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 4px;
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      opacity: 0.8;
+    }
+  }
+
+  &--secondary {
+    color: var(--color-main-bg);
+    letter-spacing: 0.05rem;
+    background-color: var(--color-secondary);
+    border: none;
+    border-radius: 4px;
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      opacity: 0.8;
+    }
+  }
+
+  &--accent {
+    color: var(--color-main-bg);
+    letter-spacing: 0.05rem;
+    background-color: var(--color-accent);
+    border: none;
+    border-radius: 4px;
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      opacity: 0.8;
+    }
+  }
+
+  &--text {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+
+    &:hover,
+    &:focus-visible,
+    &:active {
+      color: var(--color-accent);
+    }
+  }
+
+  &--clean {
+    padding: 0;
+    font-size: inherit;
+    text-transform: inherit;
+    background-color: transparent;
+
+    &--large {
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+    }
+
+    &--small {
+      padding: 0.3rem 0.5rem;
+      font-size: 0.9rem;
+    }
+  }
+}

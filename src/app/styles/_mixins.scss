@@ -1,0 +1,3 @@
+@mixin base-transition($param: all, $duration: 0.3) {
+  transition: $param #{$duration}s ease-in-out;
+}
