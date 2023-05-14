@@ -1,4 +1,4 @@
-import './Button.sass'
+import './Button.scss'
 import bem from 'shared/lib/classNames/bem'
 import React from 'react'
 

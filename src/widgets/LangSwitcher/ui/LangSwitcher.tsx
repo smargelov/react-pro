@@ -1,4 +1,4 @@
-import './LangSwitcher.sass'
+import './LangSwitcher.scss'
 import bem from 'shared/lib/classNames/bem'
 import { Button, ButtonType } from 'shared/ui/Button'
 import { useTranslation } from 'react-i18next'
@@ -17,7 +17,7 @@ export function LangSwitcher({ className }: LangSwitcherProps) {
 				aria-label={t('Переключить язык на русский')}
 				onClick={() => i18n.changeLanguage('ru')}
 			>
-				ru
+				{t('ru')}
 			</Button>
 			<Button
 				bType={ButtonType.CLEAN}
@@ -25,7 +25,7 @@ export function LangSwitcher({ className }: LangSwitcherProps) {
 				aria-label={t('Переключить язык на английский')}
 				onClick={() => i18n.changeLanguage('en')}
 			>
-				en
+				{t('en')}
 			</Button>
 		</div>
 	)

@@ -1,4 +1,4 @@
-import './styles/index.sass'
+import './styles/index.scss'
 import bem from 'shared/lib/classNames/bem'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { Navbar } from 'widgets/navbar'

@@ -3,5 +3,9 @@
   "О нас": "About us",
   "Главная": "Main",
   "Переключить язык на английский": "Switch language to English",
-  "Переключить язык на русский": "Switch language to Russian"
+  "Переключить язык на русский": "Switch language to Russian",
+  "Toggle theme": "Toggle theme",
+  "ru": "ru",
+  "en": "en",
+  "Loading...": "Loading..."
 }

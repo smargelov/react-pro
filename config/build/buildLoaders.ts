@@ -54,7 +54,7 @@ export default function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRu
 				loader: 'css-loader',
 				options: {
 					modules: {
-						auto: (resourcePath: string) => resourcePath.endsWith('.module.sass'),
+						auto: (resourcePath: string) => resourcePath.endsWith('.module.scss'),
 						localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:5]'
 					},
 					sourceMap: isDev

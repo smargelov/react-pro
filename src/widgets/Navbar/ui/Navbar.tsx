@@ -1,4 +1,4 @@
-import './Navbar.sass'
+import './Navbar.scss'
 import bem from 'shared/lib/classNames/bem'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
