@@ -9,19 +9,18 @@ interface ThemeSwitcherProps {
 	className?: string
 }
 
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
 	const { theme, toggleTheme } = useTheme()
 	return (
-		<div className={ bem('theme-switcher', { dark: theme === 'dark' }, [className]) }>
-			<LightIcon className={ bem('theme-switcher', 'icon', { dark: theme === Theme.DARK }) }/>
+		<div className={bem('theme-switcher', { dark: theme === 'dark' }, [className])}>
+			<LightIcon className={bem('theme-switcher', 'icon', { dark: theme === Theme.DARK })} />
 			<Button
-				bType={ ButtonType.CLEAN}
-				onClick={ toggleTheme }
-				className={ bem('theme-switcher', 'button', { dark: theme === Theme.DARK }) }
+				bType={ButtonType.CLEAN}
+				onClick={toggleTheme}
+				className={bem('theme-switcher', 'button', { dark: theme === Theme.DARK })}
 				area-label="Toggle theme"
-			>
-			</Button>
-			<DarkIcon className={ bem('theme-switcher', 'icon', { dark: theme === Theme.DARK }) }/>
+			/>
+			<DarkIcon className={bem('theme-switcher', 'icon', { dark: theme === Theme.DARK })} />
 		</div>
 	)
 }

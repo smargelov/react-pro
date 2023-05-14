@@ -7,16 +7,16 @@ interface NavbarProps {
 	className?: string
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export function Navbar({ className }: NavbarProps) {
 	const { t } = useTranslation()
 	return (
-		<nav className={ bem('navbar', {}, [className]) }>
-			<ul className={ bem('navbar', 'list') }>
-				<li className={ bem('navbar', 'item') }>
-					<Link className={ bem('navbar', 'link') } to="/">{t('Главная')}</Link>
+		<nav className={bem('navbar', {}, [className])}>
+			<ul className={bem('navbar', 'list')}>
+				<li className={bem('navbar', 'item')}>
+					<Link className={bem('navbar', 'link')} to="/">{t('Главная')}</Link>
 				</li>
-				<li className={ bem('navbar', 'item') }>
-					<Link className={ bem('navbar', 'link') } to="/about">{t('О нас')}</Link>
+				<li className={bem('navbar', 'item')}>
+					<Link className={bem('navbar', 'link')} to="/about">{t('О нас')}</Link>
 				</li>
 			</ul>
 		</nav>

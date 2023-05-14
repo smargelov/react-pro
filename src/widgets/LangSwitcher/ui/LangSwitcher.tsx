@@ -7,23 +7,23 @@ interface LangSwitcherProps {
 	className?: string
 }
 
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export function LangSwitcher({ className }: LangSwitcherProps) {
 	const { t, i18n } = useTranslation()
 	return (
-		<div className={ bem('lang-switcher', {}, [className]) }>
+		<div className={bem('lang-switcher', {}, [className])}>
 			<Button
 				bType={ButtonType.CLEAN}
-				className={ bem('lang-switcher', 'button', {'active': i18n.language === 'ru'}) }
-				aria-label={ t('Переключить язык на русский') }
-				onClick={ () => i18n.changeLanguage('ru')}
+				className={bem('lang-switcher', 'button', { active: i18n.language === 'ru' })}
+				aria-label={t('Переключить язык на русский')}
+				onClick={() => i18n.changeLanguage('ru')}
 			>
 				ru
 			</Button>
 			<Button
 				bType={ButtonType.CLEAN}
-				className={ bem('lang-switcher', 'button', {'active': i18n.language === 'en'}) }
-				aria-label={ t('Переключить язык на английский') }
-				onClick={ () => i18n.changeLanguage('en')}
+				className={bem('lang-switcher', 'button', { active: i18n.language === 'en' })}
+				aria-label={t('Переключить язык на английский')}
+				onClick={() => i18n.changeLanguage('en')}
 			>
 				en
 			</Button>

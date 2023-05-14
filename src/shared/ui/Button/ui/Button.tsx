@@ -1,11 +1,6 @@
 import './Button.sass'
 import bem from 'shared/lib/classNames/bem'
-
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-	className?: string,
-	bType?: ButtonType,
-	size?: ButtonSize
-}
+import React from 'react'
 
 export enum ButtonType {
 	PRIMARY = 'primary',
@@ -21,8 +16,16 @@ export enum ButtonSize {
 	LARGE = 'large'
 }
 
-export const Button = (props: ButtonProps) => {
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+	className?: string,
+	bType?: ButtonType,
+	size?: ButtonSize,
+	type?: 'button' | 'submit' | 'reset'
+}
+
+export function Button(props: ButtonProps) {
 	const {
+		type = 'button',
 		className,
 		children,
 		bType = ButtonType.PRIMARY,
@@ -31,10 +34,12 @@ export const Button = (props: ButtonProps) => {
 	} = props
 	return (
 		<button
-			className={ bem('button', { [bType]: bType, [size]: size }, [className]) }
-			{ ...otherProps }
+			/* eslint-disable-next-line react/button-has-type */
+			type={type}
+			className={bem('button', { [bType]: bType, [size]: size }, [className])}
+			{...otherProps}
 		>
-			{ children }
+			{children}
 		</button>
 	)
 }

@@ -1,9 +1,8 @@
 import webpack from 'webpack'
-import { BuildOptions } from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import { BuildOptions } from './types/config'
 
 export default function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
-
 	const svgLoader: webpack.RuleSetRule = {
 		test: /\.svg$/,
 		use: ['@svgr/webpack']
@@ -37,7 +36,7 @@ export default function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRu
 							'ru',
 							'en'
 						],
-						'keyAsDefaultValue': true
+						keyAsDefaultValue: true
 					}]
 				]
 
