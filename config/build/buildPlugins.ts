@@ -19,7 +19,7 @@ export default function buildPlugins({ paths, isDev }: BuildOptions): webpack.We
 	]
 	const devLoaders: webpack.WebpackPluginInstance[] = [
 		// плагин для работы с горячей перезагрузкой
-		new ReactRefreshWebpackPlugin(),
+		new ReactRefreshWebpackPlugin({ overlay: false }),
 		new webpack.HotModuleReplacementPlugin()
 	]
 	// плагины для продакшена
