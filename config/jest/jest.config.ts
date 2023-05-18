@@ -3,14 +3,13 @@
  * https://jestjs.io/docs/configuration
  */
 
+import * as path from 'path'
+
 export default {
 	clearMocks: true,
 	testEnvironment: 'jsdom',
 	coveragePathIgnorePatterns: [
-		'/node_modules/'
-	],
-	moduleDirectories: [
-		'node_modules'
+		'\\\\node_modules\\\\'
 	],
 	moduleFileExtensions: [
 		'js',
@@ -20,8 +19,22 @@ export default {
 		'json',
 		'node'
 	],
-	testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
-	rootDir: '../../'
+	moduleDirectories: [
+		'node_modules'
+	],
+	modulePaths: [
+		'<rootDir>src'
+	],
+	testMatch: [
+		// Обнаружил разницу между МАК ОС и ВИНДОУС!!!
+		'<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
+	],
+	rootDir: '../../',
+	setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+	moduleNameMapper: {
+		'\\.s?css$': 'identity-obj-proxy',
+		'\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
+	}
 
 	// All imported modules in your tests should be mocked automatically
 	// automock: false,

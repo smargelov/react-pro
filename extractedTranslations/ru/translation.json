@@ -1,8 +1,16 @@
 {
+  "Loading": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
   "Toggle theme": "Toggle theme",
   "en": "en",
   "ru": "ru",
   "throw this": "throw this",
+  "toggle": "toggle",
   "ГЛАВНАЯ СТРАНИЦА": "ГЛАВНАЯ СТРАНИЦА",
   "Главная": "Главная",
   "О САЙТЕ": "О САЙТЕ",

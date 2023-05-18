@@ -11,5 +11,6 @@
   "404: Страница не найдена": "404: Page not found",
   "Произошла непредвиденная ошибка": "An unexpected error has occurred",
   "Перезагрузить": "Reload",
-  "throw this": "throw this"
+  "throw this": "throw this",
+  "toggle": "toggle"
 }

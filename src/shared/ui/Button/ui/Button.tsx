@@ -1,6 +1,6 @@
 import './Button.scss'
 import bem from 'shared/lib/classNames/bem'
-import React from 'react'
+import { HTMLAttributes } from 'react'
 
 export enum ButtonType {
 	PRIMARY = 'primary',
@@ -16,7 +16,7 @@ export enum ButtonSize {
 	LARGE = 'large'
 }
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
 	className?: string,
 	bType?: ButtonType,
 	size?: ButtonSize,
