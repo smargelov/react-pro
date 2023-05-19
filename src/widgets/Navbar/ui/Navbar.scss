@@ -1,9 +1,13 @@
+@import "app/styles/mixins";
+
 .navbar {
   display: flex;
   align-items: center;
   height: var(--navbar-height);
   padding-inline: 2rem;
   background-color: var(--color-navbar-bg);
+
+  @include base-transition();
 
   &__list {
     display: flex;

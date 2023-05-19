@@ -6,6 +6,7 @@
     "stylelint-order"
   ],
   "rules": {
+    "scss/at-mixin-argumentless-call-parentheses": "off",
     "order/order": [
       "custom-properties",
       "declarations"

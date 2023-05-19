@@ -12,5 +12,7 @@
   "Произошла непредвиденная ошибка": "An unexpected error has occurred",
   "Перезагрузить": "Reload",
   "throw this": "throw this",
-  "toggle": "toggle"
+  "toggle": "toggle",
+  "развернуть": "expand",
+  "свернуть": "collapse"
 }

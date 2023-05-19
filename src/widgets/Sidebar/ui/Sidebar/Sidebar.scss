@@ -1,17 +1,19 @@
 @import "app/styles/mixins";
 
 .sidebar {
+  $self: &;
+
+  position: relative;
   display: grid;
   grid-template-rows: auto 1fr auto;
   width: var(--sidebar-width);
   background-color: var(--color-navbar-bg);
   box-shadow: inset 0 0 2px rgb(0 0 0 / 30%);
 
-  @include base-transition("width");
+  @include base-transition();
 
   &--collapsed {
     width: var(--sidebar-collapsed-width);
-    overflow: hidden;
   }
 
   &__footer {
@@ -19,5 +21,38 @@
     gap: 1rem;
     justify-items: center;
     padding-bottom: 1rem;
+  }
+
+  #{$self}__toggle-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: auto 0fr;
+    gap: 0;
+    padding: 1rem;
+    color: var(--color-text);
+    background-color: var(--color-navbar-bg);
+    border: none;
+    border-top-right-radius: 0.5rem;
+    transform: translateX(calc(100% - 2px));
+
+    &:hover,
+    &:focus-visible {
+      grid-template-columns: auto min-content;
+      gap: 1rem;
+    }
+  }
+
+  &__toggle-icon {
+    @include base-transition("transform");
+
+    &--collapsed {
+      transform: rotateZ(180deg);
+    }
+  }
+
+  &__toggle-text {
+    overflow: hidden;
   }
 }

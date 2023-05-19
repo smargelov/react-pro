@@ -3,8 +3,9 @@ import bem from 'shared/lib/classNames/bem'
 import { useState } from 'react'
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher'
 import { LangSwitcher } from 'widgets/LangSwitcher'
-import { Button } from 'shared/ui/Button'
+import { Button, ButtonType } from 'shared/ui/Button'
 import { useTranslation } from 'react-i18next'
+import ArrowCircle from 'shared/assets/icons/arrow-circle-left.svg'
 
 interface SidebarProps {
 	className?: string
@@ -21,8 +22,18 @@ export function Sidebar({ className }: SidebarProps) {
 			<div className={bem('sidebar', 'footer')}>
 				<LangSwitcher className={collapsed && 'small'} />
 				<ThemeSwitcher className={collapsed && 'small'} />
-				<Button data-testid="toggle-btn" onClick={toggleSidebar}>{t('toggle')}</Button>
 			</div>
+			<Button
+				data-testid="toggle-btn"
+				onClick={toggleSidebar}
+				className={bem('sidebar', 'toggle-btn', { collapsed })}
+				bType={ButtonType.CLEAN}
+			>
+				<ArrowCircle className={bem('sidebar', 'toggle-icon', { collapsed })} />
+				<span className={bem('sidebar', 'toggle-text')}>
+					{collapsed ? t('развернуть') : t('свернуть')}
+				</span>
+			</Button>
 		</aside>
 	)
 }
