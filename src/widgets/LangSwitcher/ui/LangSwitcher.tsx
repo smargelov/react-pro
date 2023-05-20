@@ -12,7 +12,7 @@ export function LangSwitcher({ className }: LangSwitcherProps) {
 	return (
 		<div className={bem('lang-switcher', {}, [className])}>
 			<Button
-				bType={ButtonType.CLEAN}
+				bType={ButtonType.CLEAR}
 				className={bem('lang-switcher', 'button', { active: i18n.language === 'ru' })}
 				aria-label={t('Переключить язык на русский')}
 				onClick={() => i18n.changeLanguage('ru')}
@@ -20,7 +20,7 @@ export function LangSwitcher({ className }: LangSwitcherProps) {
 				{t('ru')}
 			</Button>
 			<Button
-				bType={ButtonType.CLEAN}
+				bType={ButtonType.CLEAR}
 				className={bem('lang-switcher', 'button', { active: i18n.language === 'en' })}
 				aria-label={t('Переключить язык на английский')}
 				onClick={() => i18n.changeLanguage('en')}

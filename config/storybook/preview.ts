@@ -8,12 +8,13 @@ export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
 	controls: {
 		matchers: {
-			color: /(background|color)$/i,
 			date: /Date$/
 		}
 	}
 }
 
+// @ts-ignore
 addDecorator(StyleDecorator)
 addDecorator(ThemeDecorator(Theme.LIGHT))
+// @ts-ignore
 addDecorator(RouterDecorator)

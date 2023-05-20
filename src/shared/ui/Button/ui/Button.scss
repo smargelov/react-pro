@@ -5,8 +5,10 @@
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
+  height: min-content;
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
+  line-height: 1.5;
   text-transform: uppercase;
   cursor: pointer;
 
@@ -61,7 +63,8 @@
   }
 
   &--text {
-    padding: 0;
+    color: var(--color-main-text);
+    text-transform: none;
     background-color: transparent;
     border: none;
 
@@ -72,20 +75,20 @@
     }
   }
 
-  &--clean {
-    padding: 0;
+  &--clear {
     font-size: inherit;
+    color: var(--color-main-text);
     text-transform: inherit;
     background-color: transparent;
+  }
 
-    &--large {
-      padding: 1rem 2rem;
-      font-size: 1.5rem;
-    }
+  &--large {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
 
-    &--small {
-      padding: 0.3rem 0.5rem;
-      font-size: 0.9rem;
-    }
+  &--small {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
   }
 }

@@ -1,0 +1,38 @@
+.story {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  align-content: start;
+  align-items: start;
+  justify-content: start;
+  justify-items: start;
+  width: 100%;
+  padding: 1rem;
+  color: var(--color-main-text);
+  background-color: var(--color-main-bg);
+
+  &--light {
+    --color-main-text: var(--color-black);
+    --color-main-bg: var(--color-white);
+    --color-navbar-bg: var(--color-light-gray);
+    --color-accent: var(--color-dark-red);
+    --color-primary: var(--color-dark-green);
+    --color-secondary: var(--color-dark-blue);
+  }
+
+  .story {
+    align-self: stretch;
+    justify-self: center;
+    width: calc(100% + 2rem);
+    margin: -1rem;
+  }
+
+  &--dark {
+    --color-main-text: var(--color-white);
+    --color-main-bg: var(--color-black);
+    --color-navbar-bg: var(--color-dark-grey);
+    --color-accent: var(--color-red);
+    --color-primary: var(--color-green);
+    --color-secondary: var(--color-blue);
+  }
+}

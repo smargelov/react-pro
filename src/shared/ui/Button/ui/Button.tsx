@@ -7,7 +7,7 @@ export enum ButtonType {
 	SECONDARY = 'secondary',
 	ACCENT = 'accent',
 	TEXT = 'text',
-	CLEAN = 'clean'
+	CLEAR = 'clear'
 }
 
 export enum ButtonSize {

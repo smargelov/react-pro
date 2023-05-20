@@ -27,7 +27,7 @@ export function Sidebar({ className }: SidebarProps) {
 				data-testid="toggle-btn"
 				onClick={toggleSidebar}
 				className={bem('sidebar', 'toggle-btn', { collapsed })}
-				bType={ButtonType.CLEAN}
+				bType={ButtonType.CLEAR}
 			>
 				<ArrowCircle className={bem('sidebar', 'toggle-icon', { collapsed })} />
 				<span className={bem('sidebar', 'toggle-text')}>

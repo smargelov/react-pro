@@ -1,1 +1,1 @@
-export {Button, ButtonType, ButtonSize} from './ui/Button'
+export { Button, ButtonType, ButtonSize } from './ui/Button'

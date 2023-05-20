@@ -1,37 +1,56 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Button, ButtonType } from './Button'
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
+import { Theme } from 'app/providers/ThemeProvider'
+import { Button, ButtonSize, ButtonType } from './Button'
 
 export default {
 	title: 'shared/Button',
 	component: Button,
 	argTypes: {
-		backgroundColor: { control: 'color' }
+		children: {
+			name: 'Content'
+		},
+		bType: {
+			name: 'Button Type',
+			defaultValue: ButtonType.PRIMARY,
+			description: 'Changes the button\'s color scheme',
+			control: {
+				label: 'Button Type',
+				type: 'select',
+				options: Object.values(ButtonType)
+			}
+		},
+		size: {
+			name: 'Size',
+			defaultValue: ButtonSize.MEDIUM,
+			control: {
+				type: 'select',
+				options: Object.values(ButtonSize)
+			}
+		},
+		className: {
+			name: 'Class Name'
+		},
+		type: {
+			name: 'Native type',
+			defaultValue: 'button',
+			control: {
+				type: 'select'
+			}
+		}
+	},
+	args: {
+		children: 'Text'
 	}
 } as ComponentMeta<typeof Button>
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
-	children: 'Text'
-}
+export const PrimaryLight = Template.bind({})
+PrimaryLight.args = {}
 
-export const Clean = Template.bind({})
-Clean.args = {
-	children: 'Text',
-	bType: ButtonType.CLEAN
-}
-
-export const Accent = Template.bind({})
-Accent.args = {
-	children: 'Text',
-	bType: ButtonType.ACCENT
-}
-
-export const Secondary = Template.bind({})
-Secondary.args = {
-	children: 'Text',
-	bType: ButtonType.SECONDARY
-}
+export const PrimaryDark = Template.bind({})
+PrimaryDark.args = {}
+PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]

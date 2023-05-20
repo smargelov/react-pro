@@ -5,6 +5,7 @@ import DarkIcon from 'shared/assets/icons/dark-mode.svg'
 import LightIcon from 'shared/assets/icons/light-mode.svg'
 import { Button, ButtonType } from 'shared/ui/Button'
 import { useTranslation } from 'react-i18next'
+import React from 'react'
 
 interface ThemeSwitcherProps {
 	className?: string
@@ -12,18 +13,19 @@ interface ThemeSwitcherProps {
 
 export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
 	const { theme, toggleTheme } = useTheme()
-	// eslint-disable-next-line no-undef
 	const { t } = useTranslation()
 	return (
-		<div className={bem('theme-switcher', { dark: theme === 'dark' }, [className])}>
+		<Button
+			bType={ButtonType.CLEAR}
+			className={bem('theme-switcher', { dark: theme === Theme.DARK }, [className])}
+			onClick={toggleTheme}
+			area-label={t('Toggle theme')}
+		>
 			<LightIcon className={bem('theme-switcher', 'icon', { dark: theme === Theme.DARK })} />
-			<Button
-				bType={ButtonType.CLEAN}
-				onClick={toggleTheme}
+			<div
 				className={bem('theme-switcher', 'button', { dark: theme === Theme.DARK })}
-				area-label={t('Toggle theme')}
 			/>
 			<DarkIcon className={bem('theme-switcher', 'icon', { dark: theme === Theme.DARK })} />
-		</div>
+		</Button>
 	)
 }
