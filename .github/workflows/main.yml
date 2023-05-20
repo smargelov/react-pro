@@ -29,3 +29,7 @@ jobs:
         run: npm run lint:scss
       - name: 🛠️ Test unit
         run: npm run test:unit
+      - name: 📖 Create storybook
+        run: npm run build-storybook
+      - name: 📲 Test screenshot
+        run: npm run test:ui:ci
