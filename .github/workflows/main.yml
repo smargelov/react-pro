@@ -1,0 +1,31 @@
+name: Linting, testing and building
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 19.x ]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: 🚜 Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: 📲 Install dependencies
+        run: npm ci
+      - name : 🏗️ Build production
+        run: npm run build:prod
+      - name: 🧨 Lint typescript
+        run: npm run lint:ts
+      - name: 🔦 Lint style
+        run: npm run lint:scss
+      - name: 🛠️ Test unit
+        run: npm run test:unit
