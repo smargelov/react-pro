@@ -1,7 +1,7 @@
 import './styles/index.scss'
 import bem from 'shared/lib/classNames/bem'
 import { useTheme } from 'app/providers/ThemeProvider'
-import { Navbar } from 'widgets/navbar'
+import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import { Suspense } from 'react'
 import { AppRouter } from './providers/router'

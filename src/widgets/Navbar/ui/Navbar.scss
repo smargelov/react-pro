@@ -3,6 +3,7 @@
 .navbar {
   display: flex;
   align-items: center;
+  width: 100%;
   height: var(--navbar-height);
   padding-inline: 2rem;
   background-color: var(--color-navbar-bg);

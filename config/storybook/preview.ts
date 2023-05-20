@@ -10,6 +10,11 @@ export const parameters = {
 		matchers: {
 			date: /Date$/
 		}
+	},
+	options: {
+		storySort: {
+			order: ['app', 'pages', 'features', 'widgets', 'entities', 'shared']
+		}
 	}
 }
 
