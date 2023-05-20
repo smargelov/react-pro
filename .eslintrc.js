@@ -30,7 +30,9 @@ module.exports = {
 		'import/extensions': 'off',
 		'react/jsx-indent': ['error', 'tab'],
 		'react/react-in-jsx-scope': 'off',
-		'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.tsx'] }],
+		'react/jsx-filename-extension': ['error', {
+			extensions: ['.js', '.jsx', '.tsx']
+		}],
 		'react/jsx-indent-props': ['error', 'tab'],
 		'import/prefer-default-export': 'off',
 		'import/no-unresolved': 'off',
@@ -43,7 +45,9 @@ module.exports = {
 		'no-unused-vars': 'off',
 		'@typescript-eslint/no-unused-vars': 'error',
 		'no-underscore-dangle': 'off',
-		'max-len': ['error', { code: 120 }],
+		'max-len': ['error', {
+			code: 120
+		}],
 		'import/no-extraneous-dependencies': 'off',
 		'i18next/no-literal-string': ['error', {
 			markupOnly: true,
@@ -55,7 +59,7 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: ['**/*.spec.*', '**/*.test.*'],
+			files: ['**/src/**/*.spec.{ts,tsx}'],
 			rules: {
 				'i18next/no-literal-string': 'off'
 			}

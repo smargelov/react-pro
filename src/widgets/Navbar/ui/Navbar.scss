@@ -7,7 +7,7 @@
   padding-inline: 2rem;
   background-color: var(--color-navbar-bg);
 
-  @include base-transition();
+  @include base-transition;
 
   &__list {
     display: flex;
