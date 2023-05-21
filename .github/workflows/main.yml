@@ -14,7 +14,7 @@ jobs:
         node-version: [ 19.x ]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: 🚜 Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -36,7 +36,10 @@ jobs:
         continue-on-error: true # Это позволяет выполнение следующего шага, даже если этот шаг не удался
       - name: 📸 Save screenshots as artifacts
         if: ${{ failure() }}
-        uses: actions/upload-artifact@v2
+        uses: actions/download-artifact@v3
+        id: download
         with:
-          name: failed-screenshots
+          name: 'failed-screenshots'
           path: .loki/difference
+      - name: 'Echo download path'
+        run: echo ${{steps.download.outputs.download-path}}
