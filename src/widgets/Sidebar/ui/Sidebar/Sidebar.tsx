@@ -17,12 +17,6 @@ export function Sidebar({ className }: SidebarProps) {
 	const toggleSidebar = () => setCollapsed(!collapsed)
 	return (
 		<aside data-testid="sidebar" className={bem('sidebar', { collapsed }, [className])}>
-			<div className={bem('sidebar', 'header')} />
-			<div className={bem('sidebar', 'content')} />
-			<div className={bem('sidebar', 'footer')}>
-				<LangSwitcher className={collapsed && 'small'} />
-				<ThemeSwitcher className={collapsed && 'small'} />
-			</div>
 			<Button
 				data-testid="toggle-btn"
 				onClick={toggleSidebar}
@@ -34,6 +28,12 @@ export function Sidebar({ className }: SidebarProps) {
 					{collapsed ? t('развернуть') : t('свернуть')}
 				</span>
 			</Button>
+			<div className={bem('sidebar', 'header')} />
+			<div className={bem('sidebar', 'content')} />
+			<div className={bem('sidebar', 'footer')}>
+				<LangSwitcher className={collapsed && 'small'} />
+				<ThemeSwitcher className={collapsed && 'small'} />
+			</div>
 		</aside>
 	)
 }
