@@ -38,10 +38,18 @@
     border-top-right-radius: 0.5rem;
     transform: translateX(calc(100% - 2px));
 
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
     &:hover,
     &:focus-visible {
       grid-template-columns: auto min-content;
       gap: 1rem;
+
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
     }
   }
 
@@ -55,5 +63,9 @@
 
   &__toggle-text {
     overflow: hidden;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 }
