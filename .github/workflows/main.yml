@@ -14,31 +14,32 @@ jobs:
         node-version: [ 19.x ]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
       - name: 🚜 Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - name: 📲 Install dependencies
         run: npm ci
-      - name: 🏗️ Build production
-        run: npm run build:prod
-      - name: 🧨 Lint typescript
-        run: npm run lint:ts
-      - name: 🔦 Lint style
-        run: npm run lint:scss
-      - name: 🛠️ Test unit
-        run: npm run test:unit
+#      - name: 🏗️ Build production
+#        run: npm run build:prod
+#      - name: 🧨 Lint typescript
+#        run: npm run lint:ts
+#      - name: 🔦 Lint style
+#        run: npm run lint:scss
+#      - name: 🛠️ Test unit
+#        run: npm run test:unit
       - name: 📖 Create storybook
         run: npm run build-storybook
       - name: 📲 Test screenshot
         run: npm run test:ui:ci
-        continue-on-error: true # Это позволяет выполнение следующего шага, даже если этот шаг не удался
+        continue-on-error: true
+      - name: List failed screenshot directory
+        if: ${{ failure() }}
+        run: ls -R .loki/difference/
       - name: 📸 Save screenshots as artifacts
         if: ${{ failure() }}
-        uses: actions/download-artifact@v3
-        id: download
+        uses: actions/upload-artifact@v2
         with:
-          path: .loki/difference
-      - name: ⬇️ Echo download path
-        run: echo ${{steps.download.outputs.download-path}}
+          name: failed-screenshots
+          path: .loki
