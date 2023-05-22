@@ -35,9 +35,8 @@ jobs:
         run: npm run test:ui:ci
         continue-on-error: true
       - name: List failed screenshot directory
-        run: ls -R .loki
+        run: ls -R .loki/difference/
       - name: 📸 Save screenshots as artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: failed-screenshots
-          path: .loki
+          path: .loki/difference/
