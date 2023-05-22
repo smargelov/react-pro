@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build_and_lint:
+  lint:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: 📲 Install dependencies
+      - name: 🔂 Install dependencies
         run: npm ci
       - name: 🧨 Lint typescript
         run: npm run lint:ts
@@ -27,12 +27,24 @@ jobs:
       - name: 🔦 Lint style
         run: npm run lint:scss
         if: always()
+
+  build:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: 🚜 Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 19.x
+      - name: 🔂 Install dependencies
+        run: npm ci
       - name: 🏗️ Build production
         run: npm run build:prod
         if: always()
 
   unit_tests:
-    needs: build_and_lint
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -40,13 +52,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 19.x
-      - name: 📲 Install dependencies
+      - name: 🔂 Install dependencies
         run: npm ci
       - name: 🛠️ Test unit
         run: npm run test:unit
 
   ui_tests:
-    needs: build_and_lint
+    needs: lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -54,7 +66,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 19.x
-      - name: 📲 Install dependencies
+      - name: 🔂 Install dependencies
         run: npm ci
       - name: 📖 Create storybook
         run: npm run build-storybook
