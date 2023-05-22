@@ -2,23 +2,23 @@ import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
-import { Navbar } from './Navbar'
+import { Header } from './Header'
 
 export default {
-	title: 'widgets/Navbar',
-	component: Navbar,
+	title: 'widgets/Header',
+	component: Header,
 	tags: ['autodocs'],
 	argTypes: {},
 	parameters: {
 		docs: {
 			description: {
-				component: 'Navbar component'
+				component: 'Header component'
 			}
 		}
 	}
-} as ComponentMeta<typeof Navbar>
+} as ComponentMeta<typeof Header>
 
-const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />
+const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />
 
 export const Default = Template.bind({})
 Default.args = {}

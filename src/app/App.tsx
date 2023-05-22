@@ -1,7 +1,7 @@
 import './styles/index.scss'
 import bem from 'shared/lib/classNames/bem'
 import { useTheme } from 'app/providers/ThemeProvider'
-import { Navbar } from 'widgets/Navbar'
+import { Header } from 'widgets/Header'
 import { Sidebar } from 'widgets/Sidebar'
 import { Suspense } from 'react'
 import { AppRouter } from './providers/router'
@@ -11,7 +11,7 @@ function App() {
 	return (
 		<Suspense fallback="">
 			<div className={bem('app', { [theme]: true })}>
-				<Navbar className={bem('app', 'navbar')} />
+				<Header className={bem('app', 'navbar')} />
 				<Sidebar className={bem('app', 'sidebar')} />
 				<div className={bem('app', 'content')}>
 					<AppRouter />
