@@ -15,7 +15,11 @@
   --base-line-height: 1.4;
   --base-font-family: consolas, monaco, monospace;
   --base-gap: var(--base-font-size);
-  --navbar-height: 3.5rem;
+  --navbar-height: 60px;
   --sidebar-width: 300px;
   --sidebar-collapsed-width: 80px;
+
+  @media (max-width: 768px) {
+    --sidebar-width: 250px;
+  }
 }

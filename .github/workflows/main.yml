@@ -21,7 +21,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: 📲 Install dependencies
         run: npm ci
-      - name : 🏗️ Build production
+      - name: 🏗️ Build production
         run: npm run build:prod
       - name: 🧨 Lint typescript
         run: npm run lint:ts
@@ -29,3 +29,12 @@ jobs:
         run: npm run lint:scss
       - name: 🛠️ Test unit
         run: npm run test:unit
+      - name: 📖 Create storybook
+        run: npm run build-storybook
+      - name: 📲 Test screenshot
+        run: npm run test:ui:ci
+        continue-on-error: true
+      - name: 📸 Save screenshots as artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          path: .loki/difference/

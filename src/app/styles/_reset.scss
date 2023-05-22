@@ -9,7 +9,7 @@ body {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
-  min-height: 100vh;
+  min-height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
   text-rendering: optimizespeed;
@@ -19,7 +19,7 @@ body {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 *,
