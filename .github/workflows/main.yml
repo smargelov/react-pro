@@ -72,9 +72,9 @@ jobs:
         run: npm run build-storybook
       - name: 📲 Test screenshot
         run: npm run test:ui:ci
-        continue-on-error: true
       - name: 📸 Save screenshots as artifacts
         if: failure()
         uses: actions/upload-artifact@v2
         with:
-          path: .loki/difference/
+          name: 'report.html'
+          path: .loki
